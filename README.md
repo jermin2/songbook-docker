@@ -14,7 +14,7 @@
 `ufw delete [rule number]`
 
 ## Install Composer
-`sudo apt install php-cli unzip`
+`sudo apt install php-cli unzip`\n
 `cd ~`
 `curl -sS https://getcomposer.org/installer -o composer-setup.php`
 
@@ -34,22 +34,30 @@ HASH=`curl -sS https://composer.github.io/installer.sig`
 `git clone https://jermin2@bitbucket.org/jermin2/songbook-docker.git`
 
 `cd songbook-docker`
+
 `cd app`
+
 `composer require codeigniter4/framework`
+
 `composer install`
 
 `cd ..`
+
 `cd .docker`
 
 ### Set Permissions
 `sudo docker exec -it songbook bash`
-`-R www-data:www-data /var/www/html`
+
+`chown -R www-data:www-data /var/www/html`
 
 ## Copy over SQL files
-`sudo docker cp dump.sql songbook_db:`
+`sudo docker cp dump.sql songbook_db:/`
 
 ### Run the sql file in mysql
 `sudo docker exec -it songbook_db bash`
+
 `mysql -u root -p`
+
 [enter password]
+
 `source dump.sql`
