@@ -51,6 +51,7 @@ class Book extends Controller
     $data['params'] = $book['params'];
 
 
+ 
     echo view('templates/header', ['heading' =>  $book['name']]);
     echo view('book/create', $data);
     echo view('templates/footer');
@@ -164,8 +165,6 @@ class Book extends Controller
     if($this->request->isAJAX())
     {
       $json = $this->request->getJSON();
-      $songids = $json->values;
-      $params = $json->params;
       
       $response_array['message'] = "hi";
       // $response_array['params'] = $params;

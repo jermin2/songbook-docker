@@ -295,10 +295,12 @@
 
 function loadBook(){
   var id = '<?php echo $id; ?>';
-  var songids = '<?php echo $songids; ?>';
+  var songids = '<?php echo implode(",",$songids); ?>';
   var name = '<?php echo $name; ?>';
   var ss = '<?php echo $params; ?>';
-  console.log(id);
+  var l = '<?php echo json_encode($songids); ?>';
+  console.log(l);
+  console.log(songids);
 
   loadBookAJAX(id);
 }
