@@ -1,0 +1,25 @@
+version: '3'
+services:
+    web:
+        container_name: songbook
+        build:
+            context: ./php
+        ports:
+            - 80:80
+        volumes:
+            - ../app:/var/www/html/app/
+            - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
+        links:
+            - songbook_db
+        depends_on:
+          - songbook_db
+          
+    songbook_db:
+        container_name: songbook_db
+        image: mariadb
+        volumes:
+            - ./db:/var/lib/mysql
+        restart: always
+        env_file: .env
+        environment:
+            NETWORK_ACCESS: internal
