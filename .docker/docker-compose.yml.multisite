@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+	songbook_db:
+        container_name: songbook_db
+        image: mariadb
+        volumes:
+            - ./db:/var/lib/mysql
+        restart: always
+        env_file: .env
+        environment:
+            NETWORK_ACCESS: internal
+		networks:
+			default:
+
+    songbook:
+		container_name: songbook
+		build:
+            context: ./php
+        depends_on:
+            - songbook_db
+        volumes:
+            - ../app:/var/www/html/app/
+            - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
+        expose:
+            - 80
+            - 443
+        restart: always
+        env_file: .env
+        environment:
+            VIRTUAL_HOST: $SITE_URL
+            LETSENCRYPT_HOST: $SITE_URL
+        container_name: ${SITE_NAME}_wp
+        networks:
+            nginx-proxy:
+            default:
+     
+volumes:
+    db_data:
+
+networks:
+    nginx-proxy:
+        external: true
