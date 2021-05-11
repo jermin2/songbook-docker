@@ -485,7 +485,7 @@ class PDFCreator {
     $pdf->AddPage('P', 'A5');
 
     //set auto page break (true/false, PDF_BOTTOM_MARGIN)
-    $pdf->SetAutoPageBreak(TRUE, FONT_SIZE*2);
+    $pdf->SetAutoPageBreak(TRUE, FONT_SIZE*2.1);
 
     //Select the first column
     $pdf->selectColumn(0);
@@ -500,12 +500,17 @@ class PDFCreator {
 
     //For each item in the index
     // - Create a nonbreaking table with one row for each item
+  
+    // FOR DEBUG $songIndexItem = "Jesus Oh Living word of God";
+    // FOR DEBUG $songI = 1;
+    // FOR DEBUG for ($i = 0; $i < 200; $i++)
+
     foreach ($songIndex as $songI => $songIndexItem )
     {
 
-      $html = "<table><tr nobr='true'>".
+      $html = '<table nobr="true"><tr nobr="true">'.
         '<td colspan="5">'.$songIndexItem."</td>".
-        '<td style="text-align:center">'.$songI++."</td>".
+        '<td style="text-align:center">'.$songI."</td>".
           "</tr></table>";
 
       $pdf->WriteHTML($html,false);
