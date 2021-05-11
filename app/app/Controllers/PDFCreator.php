@@ -499,10 +499,11 @@ class PDFCreator {
     asort($songIndex);
 
     //For each item in the index
+    // - Create a nonbreaking table with one row for each item
     foreach ($songIndex as $songI => $songIndexItem )
     {
 
-      $html = "<table><tr>".
+      $html = "<table><tr nobr='true'>".
         '<td colspan="5">'.$songIndexItem."</td>".
         '<td style="text-align:center">'.$songI++."</td>".
           "</tr></table>";
