@@ -485,7 +485,7 @@ class PDFCreator {
     $pdf->AddPage('P', 'A5');
 
     //set auto page break (true/false, PDF_BOTTOM_MARGIN)
-    $pdf->SetAutoPageBreak(TRUE, FONT_SIZE*2.1);
+    $pdf->SetAutoPageBreak(TRUE, FONT_SIZE);
 
     //Select the first column
     $pdf->selectColumn(0);
