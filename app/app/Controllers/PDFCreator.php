@@ -483,24 +483,33 @@ class PDFCreator {
     
     //Add index page
     $pdf->AddPage('P', 'A5');
+
+    //set auto page break (true/false, PDF_BOTTOM_MARGIN)
+    $pdf->SetAutoPageBreak(TRUE, FONT_SIZE*2);
+
+    //Select the first column
     $pdf->selectColumn(0);
     
+    //Write the heading "Index"
     $this->writeSongNum("Index");
-    $pdf->ln(2);
+
+    //set top margin
+    $pdf->SetTopMargin(SONGNUM_SIZE*1.5);
+
     asort($songIndex);
-    
-    $html = '<table>';
-    
+
+    //For each item in the index
     foreach ($songIndex as $songI => $songIndexItem )
     {
-      $html = $html."<tr>".
+
+      $html = "<table><tr>".
         '<td colspan="5">'.$songIndexItem."</td>".
-        '<td style="text-align:center">'.$songI."</td>".
-          "</tr>";
+        '<td style="text-align:center">'.$songI++."</td>".
+          "</tr></table>";
+
+      $pdf->WriteHTML($html,false);
     }
-    $html .= "</table>";
-    
-    $pdf->WriteHTML($html);
+
   }
 
   // ---------------------------------------------------------
