@@ -245,6 +245,7 @@
     var fontstyle = e.options[e.selectedIndex].value;
     var index = document.getElementById("showindex").checked;
     var dblCol = document.getElementById("dblColumn").checked;
+    var showsource = document.getElementById("showsource").checked;
     
     var params = { 
         "FONT_STYLE" : fontstyle,
@@ -253,7 +254,7 @@
         "SONGNUM_SIZE" : songnumsize.value,
         "DOUBLE_COL" : dblCol,
         "INDEX"       : index,
-        "SOURCE"      :showsource,
+        "SOURCE"      : showsource,
     };
 
     console.log(songids);
