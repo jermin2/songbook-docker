@@ -370,7 +370,7 @@ class PDFCreator {
     $this->writeSongNum($songNum++);
     
     //
-    if($params->SOURCE = true)
+    if($params->SOURCE == true)
       $this->writeSource($song->meta_data->source);
     
     // ### For Each VERSE ####  
