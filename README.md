@@ -1,3 +1,8 @@
+The new version of songbook is out.
+Check it out here:
+https://github.com/jermin2/songbook
+
+
 # Songbook Installation Instructions #
 
 ## Add new user
