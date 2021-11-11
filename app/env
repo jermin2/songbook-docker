@@ -54,7 +54,7 @@ CI_ENVIRONMENT = development
 database.default.hostname = songbook_db:3306
 database.default.database = songbook_database
 database.default.username = songbook_user
-database.default.password = U7iFt06dMp6k7TV2EqcD
+database.default.password = 
 database.default.DBDriver = MySQLi
 
 # database.tests.hostname = localhost

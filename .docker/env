@@ -1,0 +1,6 @@
+MYSQL_ROOT_PASSWORD=
+MYSQL_USER=songbook_user
+MYSQL_DATABASE=songbook_database
+MYSQL_PASSWORD=
+SITE_NAME=songbook
+SITE_URL=songbook.site
